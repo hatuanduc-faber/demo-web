@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>App Fragments</title>
+<script>
+let a = document.createElement('script');
+a.type = 'text/javascript';
+a.async = true;
+a.src = document.location.protocol + '//localhost:8003/embed'
+    + '?service=heatmap-popup&tokenId='
+    + "563333050"
+    + '&protocol=' + window.location.protocol
+    + '&hostname=' + window.location.hostname
+    + '&pathname=' + encodeURIComponent(window.location.pathname)
+    + '&search=' + encodeURIComponent(window.location.search)
+    + '&hash=' + encodeURIComponent(window.location.hash)
+    + '&dv=' + "d";
+let b = document.getElementsByTagName('script')[0];
+b.parentNode.insertBefore(a, b);
+</script>
+</head>
+<body>
+    <!-- Default Navigator -->
+    <ul th:fragment = "nav-default">
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/products}">Products</a></li>
+        <li><a th:href="@{/about}">About</a></li>
+    </ul>
+    <!-- Admin Navigator -->
+    <ul th:fragment = "nav-admin">
+        <li><a th:href="@{/admin/products}">Product Management</a></li>
+        <li><a th:href="@{/admin/orders}">Order Management</a></li>
+    </ul>
+    <div th:fragment="copyright">
+      &copy; fabercompamy.org
+    </div>
+</body>
+</html>
